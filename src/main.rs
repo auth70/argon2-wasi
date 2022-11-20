@@ -20,8 +20,13 @@ fn hash(password: &str) {
 }
 
 fn verify(password: &str, hash: &str) {
-    let parsed_hash = PasswordHash::new(&hash).unwrap();
-    let matches = Argon2::default().verify_password(password.as_bytes(), &parsed_hash).is_ok();
+    let parsed_hash = PasswordHash::new(&hash);
+    if parsed_hash.is_err() {
+        eprintln!("Error parsing hash: {}", parsed_hash.err().unwrap());
+        eprintln!("Hash: '{}'", hash);
+        return;
+    }
+    let matches = Argon2::default().verify_password(password.as_bytes(), &parsed_hash.unwrap()).is_ok();
     if matches {
         println!("true");
     } else {
@@ -45,10 +50,16 @@ fn main() {
             return;
         }
     
-        if args.len() == 4 && process == "verify" {
+        else if args.len() == 4 && process == "verify" {
             let password = &args[2];
-            let hash = &args[3];
+            let hash = &args[3].trim();
             verify(password, hash);
+            return;
+        }
+
+        else {
+            eprintln!("usage: <hash> <password>");
+            eprintln!("usage: <verify> <password> <hash>");
             return;
         }
     }
