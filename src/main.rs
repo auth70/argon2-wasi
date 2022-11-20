@@ -31,11 +31,10 @@ fn verify(password: &str, hash: &str) {
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let program = args[0].clone();
 
     if args.len() < 3 {
-        eprintln!("usage: {} <hash> <password>", program);
-        eprintln!("usage: {} <verify> <password> <hash>", program);
+        eprintln!("usage: <hash> <password>");
+        eprintln!("usage: <verify> <password> <hash>");
         return;
     }
 
