@@ -2,7 +2,7 @@
 
 This wraps the Rust crate [`argon2`](https://crates.io/crates/argon2) in a very simple WASI (or commandline) compatible program.
 
-We use this with [`workerd`](https://github.com/cloudflare/workerd) / CloudFlare Workers' [WASI support](https://blog.cloudflare.com/announcing-wasi-on-workers/).
+Compatible with [`workerd`](https://github.com/cloudflare/workerd) / CloudFlare Workers' [WASI support](https://blog.cloudflare.com/announcing-wasi-on-workers/).
 
 ## Usage
 
