@@ -4,7 +4,7 @@ This wraps the Rust crate [`argon2`](https://crates.io/crates/argon2) in a very 
 
 Compatible with [`workerd`](https://github.com/cloudflare/workerd) / CloudFlare Workers' [WASI support](https://blog.cloudflare.com/announcing-wasi-on-workers/). You need to run the worker in unbounded mode for it to not time out.
 
-[`bcrypt-wasi`](https://github.com/lufsorg/bcrypt-wasi) provides an identical API for bcrypt.
+[`bcrypt-wasi`](https://github.com/auth70/bcrypt-wasi) provides an identical API for bcrypt.
 
 ## Usage
 
